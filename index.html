@@ -29,47 +29,64 @@
       </div>
       <div class="faq_title">FAQ</div>
       <div class="n2">
-        <div class="dropdown">
+        <div class="accordion">
           How many team members can I invite?
           <img src="/images/icon-arrow-down.svg" alt="" class="src">
         </div>
-        <div class="inside">
+        <div class="panel">
           You can invite up to 2 additional users on the Free plan. There is no limit on
           team members for the Premium plan.
         </div>
         <hr>
-        <div class="title_and_arrow">
-          <div class="dropdown">
-            What is the maximum file upload size?
-            <img src="/images/icon-arrow-down.svg" alt="" class="src">
-          </div>
+        <div class="accordion">
+          What is the maximum file upload size?
+          <img src="/images/icon-arrow-down.svg" alt="" class="src">
         </div>
-        <div class="inside">No more than 2GB. All files in your account must fit your allotted storage space.</div>
+        <div class="panel">No more than 2GB. All files in your account must fit your allotted storage space.</div>
         <hr>
-        <div class="dropdown">
+        <div class="accordion">
           How do I reset my password?
           <img src="/images/icon-arrow-down.svg" alt="" class="src">
         </div>
-        <div class="inside">
+        <div class="panel">
           Click “Forgot password” from the login page or “Change password” from your profile page.
           A reset link will be emailed to you.
         </div>
         <hr>
-        <div class="dropdown">
+        <div class="accordion">
           Can I cancel my subscription?
           <img src="/images/icon-arrow-down.svg" alt="" class="src">
         </div>
-        <div class="inside">Yes! Send us a message and we’ll process your request no questions asked.</div>
+        <div class="panel">Yes! Send us a message and we’ll process your request no questions asked.</div>
         <hr>
-        <div class="dropdown">
+        <div class="accordion">
           Do you provide additional support?
           <img src="/images/icon-arrow-down.svg" alt="" class="src">
         </div>
-        <div class="inside">Chat and email support is available 24/7. Phone lines are open during normal business hours.</div>
+        <div class="panel">Chat and email support is available 24/7. Phone lines are open during normal business hours.</div>
         <hr>
       </div>
     </div>
   </div>
 
+  <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for(i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+
+        var panel = this.nextElementSibling;
+        if(panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+  </script>
 </body>
+
+
 </html>
