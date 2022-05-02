@@ -58,7 +58,7 @@ body {
     margin: auto;
     display: flex;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 13px;
     padding-top: 10px;
     padding-bottom: 10px;
     color: hsl(237, 12%, 33%);
@@ -140,3 +140,5 @@ hr { /*dividers*/
     height: 100px;
     top: -240px;
 }
+
+.bold { font-weight: bold; }
