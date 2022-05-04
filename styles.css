@@ -3,43 +3,53 @@
 /* remember: mobile first! */
 
 :root{
+    /*container*/
     --container_width: 320px;
-    --faq_width: 100%;
-    --n2_width: 100%;
-    --faq_margin-top: 120px;
-    --n2_margin-bottom: 10%;
-    --n1_height: 80px;
-    --n1_top: 5px;
-    --n1_width: 320px;
-    --woman_img_width: 77.7%;
-    --faq_margin-right: auto;
-
-    --n2_margin-right: auto;
-    --n2_padding-top: 0px;
-    --n1_position: absolute;
-    --desktop_width: 320px;
-
-    --desktop_padding-right: 0px;
-    --desktop_padding-top: 0px;
-    --desktop_padding-bottom: 0px;
-    --faq_text-align: center;
-    --accordion_margin: auto;
-    --panel_margin: 0 7.5%;
-    --hr_margin-left: auto;
-
+    --container_height: auto;
+    --container_margin-top: 200px;
+    --container_margin-bottom: 100px;
+    
     --woman_img_mobile_display: block;
     --woman_img_desktop_display: none;
     --bg_pattern_mobile_display: block;
     --bg_pattern_desktop_display: none;
-    --box_display: none;
-    --container_height: auto;
+    
+    --n1_position: absolute;
+    --n1_width: 320px;
+    --n1_height: 80px;
+    --n1_top: 5px;
 
-    --container_margin-top: 160px;
-    --container_margin-bottom: 100px;
-    --faq_margin-bottom: 20px;
+    --n2_position: relative;
+    --n2_width: 100%;
+    --n2_margin-bottom: 10%;
+    --n2_margin-right: auto;
+    --n2_padding-top: 0px;
+    --n2_top: auto;
+
     --faq_position: relative;
-    /* --faq_margin-left: auto; */
-    /* --desktop_width: 100%; */
+    --faq_width: 100%;
+    --faq_margin-top: 120px;
+    --faq_text-align: center;
+    --faq_margin-right: auto;
+    --faq_margin-bottom: 20px;
+    --faq_top: auto;
+    
+    --woman_img_width: 77.7%;
+
+    --desktop_width: 320px;
+    --desktop_padding-right: 0px;
+    --desktop_padding-top: 0px;
+    --desktop_padding-bottom: 0px;
+    --desktop_position: relative;
+    --desktop_left: auto;
+
+    --accordion_margin: auto;
+    
+    --panel_margin: 0 7.5%;
+    
+    --hr_margin-left: auto;
+    
+    --box_display: none;
 }
 
 @media only screen and (min-width: 920px) { /*when screen width gets higher than 1000px*/
@@ -58,6 +68,7 @@
         --faq_margin-bottom: 0px;
         --faq_text-align: left;
         --faq_position: absolute;
+        --faq_top: -190px;
     }
 
     .n2 {
@@ -65,13 +76,15 @@
         --n2_margin-bottom: 0%;
         --n2_margin-right: 0px;
         --n2_padding-top: 80px;
+        --n2_position: absolute;
+        --n2_top: -200px;
     }
 
     .n1 {
         --n1_height: 0;
-        --n1_top: 0;
+        --n1_top: 250px;
         --n1_width: 320px;
-        --n1_position: relative;
+        --n1_position: absolute;
     }
 
     .woman_img {
@@ -84,6 +97,8 @@
         --desktop_padding-right: 0px;
         --desktop_padding-top: 50px;
         --desktop_padding-bottom: 80px;
+        --desktop_position: absolute;
+        --desktop_left: 450px;
     }
 
     .accordion {
@@ -140,10 +155,9 @@ body {
     width: var(--desktop_width);
     margin: 0;
     margin-right: 0;
-
+    position: var(--desktop_position);
     padding-right: var(--desktop_padding-right);
-    padding-top: var(--desktop_padding-top);
-    padding-bottom: var(--desktop_padding-bottom);
+    left: var(--desktop_left);
 }
 
 .outerContainer {
@@ -167,8 +181,6 @@ body {
     margin-bottom: var(--container_margin-bottom); /*mobile 30%*/
     box-shadow: 0 40px 100px -50px rgb(22, 22, 69);;
     justify-content: baseline;
-
-    /* transition: 1s; */
     height: var(--container_height);
     top: auto;
 }
@@ -181,18 +193,14 @@ body {
     margin-bottom: var(--faq_margin-bottom); /*20px for mobile*/
     margin-top: var(--faq_margin-top); /*120px for mobile*/
     margin-right: var(--faq_margin-right);
-    /* margin-left: var(--faq_margin-left); */
     color: hsl(238, 29%, 16%);
     position: var(--faq_position);
+    top: var(--faq_top);
 }
 
 .accordion {
-    /* background-color: gray; */
     width: 85%;
-
-    /* margin: auto; */
     margin: var(--accordion_margin);
-
     display: flex;
     justify-content: space-between;
     font-size: 13px;
@@ -211,21 +219,16 @@ body {
 
 .panel {
     text-align: left;
-    /* background-color: lightgray; */
-    /* display: none; */
-    /* width: 85%; */
     font-weight: 300;
     margin: var(--panel_margin); /*mobile is 0 7.5%*/
     padding-top: 5px;
-    /* padding-bottom: 15px; */
     padding-right: 18px;
     color: hsl(240, 6%, 50%);
     overflow: hidden;
     font-size: 12px;
-
     opacity: 0;
     max-height: 0;
-    transition: all .3s ease;
+    transition: all 0.5s ease;
 }
 
 .panel.active{
@@ -247,7 +250,6 @@ hr { /*dividers*/
     position: relative;
     display: var(--woman_img_mobile_display); /*mobile is block*/
     width: var(--woman_img_width); /*mobile 77.7%*/
-    /* height: 100px; */
     margin: auto;
     top: -120px;
 }
@@ -261,8 +263,6 @@ hr { /*dividers*/
     top: -180px;
     left: -1px;
     z-index: 1;
-
-    /* clip-path: inset(0px 50px); */
 }
 
 .n1 {
@@ -279,11 +279,12 @@ hr { /*dividers*/
 .n2 {
     align-items: var(--n2_align-items); /*mobile center*/
     width: var(--n2_width);
-    /* height: 430px; */
     margin-bottom: var(--n2_margin-bottom); 
     margin-right: var(--n2_margin-right);
     padding-top: var(--n2_padding-top);
     overflow: hidden;
+    position: var(--n2_position);
+    top: var(--n2_top);
 }
 
 .bg_pattern_mobile {
@@ -299,11 +300,9 @@ hr { /*dividers*/
 .bg_pattern_desktop {
     display: var(--bg_pattern_desktop_display);
     position: absolute;
-    top: -550px;
-    left: -600px;
     z-index: 0;
-    height: 500px;
-    width: 500px;
+    top: -250px;
+    left: -600px;
 }
 
 .box {
@@ -314,4 +313,11 @@ hr { /*dividers*/
     z-index: 2;
 }
 
-.bold { font-weight: bold; }
+.bold { 
+    font-weight: bold; 
+}
+
+.mask1 {
+    -webkit-mask-image: linear-gradient(black, transparent);
+    mask-image: linear-gradient(black, transparent);
+}

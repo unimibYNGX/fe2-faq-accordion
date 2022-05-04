@@ -8,12 +8,6 @@
   <link rel="stylesheet" href="styles.css">
   
   <title>Frontend Mentor | FAQ Accordion Card</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
   <div class="outerContainer">
@@ -25,7 +19,7 @@
           <svg viewBox="0 0 223 135" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.099" d="M107.828 133.156L4.32138 70.3694C1.02508 68.4676 -1.79899 65.3509 1.41212 63.3074L105.286 1.85927C106.844 0.868528 109.209 0.217602 110.796 1.16482L219.433 65.8907C222.729 67.8537 223.32 73.3241 220.037 75.3074L121.468 133.056C119.409 134.286 117.059 134.944 114.661 134.962C112.263 134.979 109.904 134.355 107.828 133.155V133.156Z" fill="#6862E6"/>
           </svg>
         </div>
-        <div class="bg_pattern_desktop"><img src="images/bg-pattern-desktop.svg">
+        <div class="bg_pattern_desktop"><img src="images/bg-pattern-desktop-alt.svg">
         </div>
         <div class="box">
           <img src="/images/illustration-box-desktop.svg">
@@ -34,63 +28,125 @@
       <div class="desktop">
         <div class="faq_title">FAQ</div>
         <div class="n2">
-          <div class="accordion">
-            How many team members can I invite?
-            <img src="/images/icon-arrow-down.svg" alt="" class="src">
-          </div>
-          <div class="panel">
-            You can invite up to 2 additional users on the Free plan. There is no limit on
-            team members for the Premium plan.
-          </div>
-          <hr>
-          <div class="accordion">
-            What is the maximum file upload size?
-            <img src="/images/icon-arrow-down.svg" alt="" class="src">
-          </div>
-          <div class="panel">No more than 2GB. All files in your account must fit your allotted storage space.</div>
-          <hr>
-          <div class="accordion">
-            How do I reset my password?
-            <img src="/images/icon-arrow-down.svg" alt="" class="src">
-          </div>
-          <div class="panel">
-            Click “Forgot password” from the login page or “Change password” from your profile page.
-            A reset link will be emailed to you.
+          <div class="outerAccordion">
+            <div class="accordion">
+              How many team members can I invite?
+              <img src="/images/icon-arrow-down.svg" alt="" class="src">
+            </div>
+            <div class="panel">
+              You can invite up to 2 additional users on the Free plan. There is no limit on
+              team members for the Premium plan.
+            </div>
           </div>
           <hr>
-          <div class="accordion">
-            Can I cancel my subscription?
-            <img src="/images/icon-arrow-down.svg" alt="" class="src">
+          <div class="outerAccordion">
+            <div class="accordion">
+              What is the maximum file upload size?
+              <img src="/images/icon-arrow-down.svg" alt="" class="src">
+            </div>
+            <div class="panel">No more than 2GB. All files in your account must fit your allotted storage space.
+            </div>
           </div>
-          <div class="panel">Yes! Send us a message and we’ll process your request no questions asked.</div>
           <hr>
-          <div class="accordion">
-            Do you provide additional support?
-            <img src="/images/icon-arrow-down.svg" alt="" class="src">
+          <div class="outerAccordion">
+            <div class="accordion">
+              How do I reset my password?
+              <img src="/images/icon-arrow-down.svg" alt="" class="src">
+            </div>
+            <div class="panel">
+              Click “Forgot password” from the login page or “Change password” from your profile page.
+              A reset link will be emailed to you.
+            </div>
           </div>
-          <div class="panel">Chat and email support is available 24/7. Phone lines are open during normal business hours.</div>
           <hr>
-      
+          <div class="outerAccordion">
+            <div class="accordion">
+              Can I cancel my subscription?
+              <img src="/images/icon-arrow-down.svg" alt="" class="src">
+            </div>
+            <div class="panel">Yes! Send us a message and we’ll process your request no questions asked.
+            </div>
+          </div>
+          <hr>
+          <div class="outerAccordion">
+            <div class="accordion">
+              Do you provide additional support?
+              <img src="/images/icon-arrow-down.svg" alt="" class="src">
+            </div>
+            <div class="panel">Chat and email support is available 24/7. Phone lines are open during normal business hours.
+            </div>
+          </div>
+          <hr>
         </div>
       </div>
     </div>
   </div>
 
   <script>
+    // var acc = document.getElementsByClassName("accordion");
+    // var i;
 
-    var acc = document.getElementsByClassName("accordion");
-    var i;
+    // for(i = 0; i < acc.length; i++) {
+    //   acc[i].addEventListener("click", function() {
 
-    for(i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function() {
+    //     this.classList.toggle("active");
+    //     this.classList.toggle("bold"); //implemented bold toggling
+    //     var panel = this.nextElementSibling;
+    //     panel.classList.toggle("active");
+    //   });
+    // }
 
-        this.classList.toggle("active");
-        this.classList.toggle("bold"); //implemented bold toggling
-        var panel = this.nextElementSibling;
-        panel.classList.toggle("active");
-      });
+    /*test*/
+
+    // let nav = document.querySelector(".accordion");
+
+    // const clickHandler = function (e) {
+    //   if (e.target.classList.contains("panel")) {
+    //     const link = e.target;
+    //     const siblings = link.closest(".accordion").querySelectorAll(".panel");
+
+    //     link.classList.toggle("active");
+
+    //     siblings.forEach((el) => {
+    //       if (el != link) el.classList.remove("active");
+    //     });
+    //   }
+    // };
+
+    const accordions = document.querySelectorAll(".outerAccordion");
+
+    const openAccordion = (outerAccordion) => {
+      var accordion_title = outerAccordion.querySelector(".accordion");
+      var accordion_panel = outerAccordion.querySelector(".panel");
+
+      accordion_title.classList.add("active");
+      accordion_title.classList.add("bold");
+      accordion_panel.classList.add("active");
     }
 
+    const closeAccordion = (outerAccordion) => {
+      var accordion_title = outerAccordion.querySelector(".accordion");
+      var accordion_panel = outerAccordion.querySelector(".panel");
+
+      accordion_title.classList.remove("active");
+      accordion_title.classList.remove("bold");
+      accordion_panel.classList.remove("active");
+    }
+
+    accordions.forEach((outerAccordion) => {
+      const intro = outerAccordion.querySelector(".accordion");
+      const content = outerAccordion.querySelector(".panel");
+
+      intro.onclick = () => {
+        if(intro.classList.contains("active"))
+        {
+          closeAccordion(outerAccordion);
+        } else {
+          accordions.forEach((outerAccordion) => closeAccordion(outerAccordion));
+          openAccordion(outerAccordion);
+        }
+      };
+    });
   </script>
 </body>
 
