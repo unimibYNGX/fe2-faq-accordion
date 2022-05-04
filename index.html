@@ -77,15 +77,16 @@
   </div>
 
   <script>
+
     var acc = document.getElementsByClassName("accordion");
     var i;
 
     for(i = 0; i < acc.length; i++) {
       acc[i].addEventListener("click", function() {
+
         this.classList.toggle("active");
         this.classList.toggle("bold"); //implemented bold toggling
         var panel = this.nextElementSibling;
-        
         panel.classList.toggle("active");
       });
     }

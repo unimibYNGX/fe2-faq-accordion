@@ -33,6 +33,11 @@
     --bg_pattern_desktop_display: none;
     --box_display: none;
     --container_height: auto;
+
+    --container_margin-top: 160px;
+    --container_margin-bottom: 100px;
+    --faq_margin-bottom: 20px;
+    --faq_position: relative;
     /* --faq_margin-left: auto; */
     /* --desktop_width: 100%; */
 }
@@ -41,27 +46,30 @@
     .container { 
         --container_width: 900px;
         justify-content: space-between; 
-        /* --container_height: 500px; */
+        --container_height: 500px;
+        --container_margin-top: 130px;
+        --container_margin-bottom: auto;
     }
 
     .faq_title {
-        --faq_width: 100%;
-        --faq_margin-top: 20px;
-        --faq_margin-right: 20px;
+        --faq_width: auto;
+        --faq_margin-top: 0px;
+        --faq_margin-right: 0px;
+        --faq_margin-bottom: 0px;
         --faq_text-align: left;
-        /* --faq_margin-left: auto; */
+        --faq_position: absolute;
     }
 
     .n2 {
         --n2_width: 100%;
         --n2_margin-bottom: 0%;
         --n2_margin-right: 0px;
-        --n2_padding-top: 8px;
+        --n2_padding-top: 80px;
     }
 
     .n1 {
-        --n1_height: 250px;
-        --n1_top: 50%;
+        --n1_height: 0;
+        --n1_top: 0;
         --n1_width: 320px;
         --n1_position: relative;
     }
@@ -74,8 +82,8 @@
         margin-left: 300px;
         --desktop_width: calc(var(--container_width) / 2);
         --desktop_padding-right: 0px;
-        --desktop_padding-top: 30px;
-        --desktop_padding-bottom: 65px;
+        --desktop_padding-top: 50px;
+        --desktop_padding-bottom: 80px;
     }
 
     .accordion {
@@ -116,8 +124,16 @@
     font-family: Kumbh Sans, sans-serif;
 }
 
+html {
+    height: 100%;
+}
+
 body {
-    background-image: linear-gradient(hsl(273,75%,66%), hsl(240,73%,65%))
+    background-image: linear-gradient(hsl(273,75%,66%), hsl(240,73%,65%));
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .desktop {
@@ -147,12 +163,12 @@ body {
     border-radius: 20px;
     width: var(--container_width);
     align-items: center;
-    margin-top: 30%;
-    margin-bottom: 30%;
+    margin-top: var(--container_margin-top); /*mobile 30%*/
+    margin-bottom: var(--container_margin-bottom); /*mobile 30%*/
     box-shadow: 0 40px 100px -50px rgb(22, 22, 69);;
     justify-content: baseline;
 
-    transition: 1s;
+    /* transition: 1s; */
     height: var(--container_height);
     top: auto;
 }
@@ -162,11 +178,12 @@ body {
     text-align: var(--faq_text-align); /*mobile is center*/
     font-size: 30px;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: var(--faq_margin-bottom); /*20px for mobile*/
     margin-top: var(--faq_margin-top); /*120px for mobile*/
     margin-right: var(--faq_margin-right);
     /* margin-left: var(--faq_margin-left); */
     color: hsl(238, 29%, 16%);
+    position: var(--faq_position);
 }
 
 .accordion {
@@ -241,7 +258,7 @@ hr { /*dividers*/
     display: var(--woman_img_desktop_display);
     width: auto;
     margin: auto;
-    top: -55px;
+    top: -180px;
     left: -1px;
     z-index: 1;
 
@@ -266,6 +283,7 @@ hr { /*dividers*/
     margin-bottom: var(--n2_margin-bottom); 
     margin-right: var(--n2_margin-right);
     padding-top: var(--n2_padding-top);
+    overflow: hidden;
 }
 
 .bg_pattern_mobile {
@@ -281,16 +299,18 @@ hr { /*dividers*/
 .bg_pattern_desktop {
     display: var(--bg_pattern_desktop_display);
     position: absolute;
-    top: -430px;
+    top: -550px;
     left: -600px;
     z-index: 0;
+    height: 500px;
+    width: 500px;
 }
 
 .box {
     display: var(--box_display);
     position: absolute;
     left: -90px;
-    top: 70px;
+    top: -60px;
     z-index: 2;
 }
 
